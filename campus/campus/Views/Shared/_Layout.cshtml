@@ -1,11 +1,14 @@
-@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - campus</title>
-
+    <title>@ViewData["Title"] - Campus</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
@@ -19,7 +22,20 @@
     @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <header class="row background-gradient">
+        <logo class="col-md-6 col-sm-12">
+            <img src="http://via.placeholder.com/200x100">
+        </logo>
+        <resumen class="col-md-6 col-sm-12">
+            <datos-resumen>
+                <a href="#" class="nombre-header">Juan Jiménez</a>
+                <a href="#" class="notificaciones-header"><i class="far fa-bell"></i></a>
+                <a href="#" class="boton-header">Perfil</a>
+                <a href="#" class="boton-header">Salir</a>
+            </datos-resumen>
+        </resumen>
+    </header>
+    <nav class="navbar navbar-inverse no-border  background-verde">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -28,7 +44,6 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">campus</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -41,12 +56,10 @@
     </nav>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - campus</p>
-        </footer>
     </div>
-
+    <footer class="background-gradient text-center">
+        <p>Diseñado por Papuchos Web Design</p>
+    </footer>
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
